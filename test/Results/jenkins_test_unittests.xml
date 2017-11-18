@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assemblies timestamp="11/18/2017 20:28:40">
+  <assembly name="C:\Users\herma\Documents\Visual Studio 2017\Projects\jenkins_test\test\jenkins_test_unittests\bin\Release\netcoreapp2.0\jenkins_test_unittests.dll" run-date="2017-11-18" run-time="20:28:40" total="2" passed="2" failed="0" skipped="0" time="0.027" errors="0">
+    <errors />
+    <collection total="2" passed="2" failed="0" skipped="0" name="Test collection for jenkins_test_unittests.MyJenkinsBuild_UnitTest" time="0.027">
+      <test name="jenkins_test_unittests.MyJenkinsBuild_UnitTest.JenkinsBuildWithNoPortShouldThrow" type="jenkins_test_unittests.MyJenkinsBuild_UnitTest" method="JenkinsBuildWithNoPortShouldThrow" time="0.0250000" result="Pass">
+        <source-file>C:\Users\herma\Documents\Visual Studio 2017\Projects\jenkins_test\jenkins_test_unittests\MyJenkinsBuild_UnitTest.cs</source-file>
+        <source-line>13</source-line>
+        <traits />
+      </test>
+      <test name="jenkins_test_unittests.MyJenkinsBuild_UnitTest.JenkinsBuildWithPortShouldSuccess" type="jenkins_test_unittests.MyJenkinsBuild_UnitTest" method="JenkinsBuildWithPortShouldSuccess" time="0.0020000" result="Pass">
+        <source-file>C:\Users\herma\Documents\Visual Studio 2017\Projects\jenkins_test\jenkins_test_unittests\MyJenkinsBuild_UnitTest.cs</source-file>
+        <source-line>24</source-line>
+        <traits />
+      </test>
+    </collection>
+  </assembly>
+</assemblies>

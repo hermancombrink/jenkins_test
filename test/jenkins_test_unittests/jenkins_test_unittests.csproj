@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\jenkins_test\jenkins_test.csproj" />
+    <ProjectReference Include="..\..\src\jenkins_test\jenkins_test.csproj" />
   </ItemGroup>
 
 </Project>
