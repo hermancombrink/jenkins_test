@@ -24,21 +24,28 @@ pipeline
 			steps 
 				  {
 					bat 'powershell ".\\build\\test.ps1"'
+				  }
 
-					step([$class: 'XUnitBuilder',
-						  thresholds: [
-						  [$class: 'SkippedThreshold', failureThreshold: '0'],
-						  [$class: 'FailedThreshold', failureThreshold: '0']],
-						  tools: [[$class: 'JUnitType', pattern: 'test/results/*.testresults']]])
+		stage('Results')
+		{
+			when  {
+				   expression { params.Test }
+			      }
+			steps 
+				  {
+					step([$class: 'XUnitBuilder',  
+						thresholds: [[$class: 'FailedThreshold', failureThreshold: '4', unstableThreshold: '1']],  
+						tools: [[$class: 'XUnitDotNetTestType', pattern:  'test\\Results\\*.testresults' ]] ])
 
 					cobertura autoUpdateHealth: false, autoUpdateStability: false, 
-					coberturaReportFile: 'test\\results\\covertura.coverageresults', 
-					conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, 
-					failUnstable: false, lineCoverageTargets: '80, 0, 0', 
-					maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', 
-					onlyStable: false, sourceEncoding: 'ASCII', 
-					zoomCoverageChart: false
+						coberturaReportFile: 'test\\results\\covertura.coverageresults', 
+						conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, 
+						failUnstable: false, lineCoverageTargets: '80, 0, 0', 
+						maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', 
+						onlyStable: false, sourceEncoding: 'ASCII', 
+						zoomCoverageChart: false
 				  }
+		}
 		}
 	}   
 }
