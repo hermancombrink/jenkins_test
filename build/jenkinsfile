@@ -1,0 +1,30 @@
+pipeline
+{
+	agent any
+	stages {
+		stage('Checkout') {
+			steps {
+			checkout scm
+			}
+		}
+		
+		stage('Build Solution') {
+			when  {
+				   expression { params.Build }
+			      }
+			steps {
+					powershell '.\\build\\build.ps1 $env:BUILD_NUMBER'
+				  }
+		}
+
+		stage('Run Tests') {
+			when  {
+				   expression { params.Test }
+			      }
+			steps 
+				  {
+						powershell '.\\build\\test.ps1'
+				  }
+		}
+	}   
+}
