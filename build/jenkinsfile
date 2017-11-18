@@ -13,7 +13,7 @@ pipeline
 				   expression { params.Build }
 			      }
 			steps {
-					powershell -NoProfile -ExecutionPolicy Bypass '.\\build\\build.ps1 $env:BUILD_NUMBER'
+					powershell '.\\build\\build.ps1 $env:BUILD_NUMBER'
 				  }
 		}
 
@@ -23,7 +23,7 @@ pipeline
 			      }
 			steps 
 				  {
-					powershell -NoProfile -ExecutionPolicy Bypass '.\\build\\test.ps1'
+					powershell '.\\build\\test.ps1'
 				  }
 		}
 	}   
