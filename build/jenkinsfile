@@ -23,7 +23,7 @@ pipeline
 			      }
 			steps 
 				  {
-					powershell '.\\build\\test.ps1'
+					bat 'powershell ".\\build\\test.ps1"'
 				  }
 		}
 	}   
