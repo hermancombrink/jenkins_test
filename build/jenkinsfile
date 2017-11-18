@@ -41,12 +41,16 @@ pipeline
 						failUnhealthy: false, 
 						failUnstable: false
 				  }
-
+		}
+		
 		stage('Publish') {
+			when  {
+				   expression { params.Publish }
+			      }
 			steps {
 					archiveArtifacts artifacts: 'src/*/bin/Release/netcoreapp2.0/*', fingerprint: true, onlyIfSuccessful: true
 			}
-		}
+		
 		}
 	}   
 }
