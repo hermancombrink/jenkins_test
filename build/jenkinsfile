@@ -24,16 +24,7 @@ pipeline
 			steps 
 				  {
 					bat 'powershell ".\\build\\test.ps1"'
-				  }
-		}
 
-		stage('Results')
-		{
-			when  {
-				   expression { params.Test }
-			      }
-			steps 
-				  {
 					step([$class: 'XUnitBuilder',  
 						thresholds: [[$class: 'FailedThreshold', failureThreshold: '4', unstableThreshold: '1']],  
 						tools: [[$class: 'XUnitDotNetTestType', pattern:  'test\\Results\\*.testresults' ]] ])

@@ -35,7 +35,7 @@ foreach($testProject in $testProjects)
 
    echo "Running tests for ... $($testProject.BaseName)" 
 
-   $dotnetArguments = "xunit", "--no-build", "-configuration Release", "-xml `"`"$testDir\Results\$($testProject.BaseName).testresults`"`""
+   $dotnetArguments = "xunit", "-xml `"`"$testDir\Results\$($testProject.BaseName).testresults`"`""
 
      & $latestOpenCover `
         -register:user `
@@ -47,8 +47,7 @@ foreach($testProject in $testProjects)
         -mergeoutput `
         -oldStyle `
         -excludebyattribute:System.CodeDom.Compiler.GeneratedCodeAttribute `
-        -log:Fatal `
-		-filter:"-[*FluentAssertions*]*"
+		-filter:"+[jenkins_test]* -[jenkins_test_unittests]*"
         $testRuns++
 }
 
