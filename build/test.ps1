@@ -33,10 +33,9 @@ if(Test-Path $openresults)
 foreach($testProject in $testProjects)
 {
 
-   $dotnetArguments = "xunit", "--no-build", "-configuration Release", "-xml `"`"$testDir\Results\$($testProject.BaseName).testresults`"`""
-
-   echo $dotnetArguments
    echo "Running tests for ... $($testProject.BaseName)" 
+
+   $dotnetArguments = "xunit", "--no-build", "-configuration Release", "-xml `"`"$testDir\Results\$($testProject.BaseName).testresults`"`""
 
      & $latestOpenCover `
         -register:user `

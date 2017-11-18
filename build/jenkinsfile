@@ -13,7 +13,7 @@ pipeline
 				   expression { params.Build }
 			      }
 			steps {
-					powershell '.\\build\\build.ps1 $env:BUILD_NUMBER'
+					bat 'powershell ".\\build\\build.ps1 $env:BUILD_NUMBER"'
 				  }
 		}
 
