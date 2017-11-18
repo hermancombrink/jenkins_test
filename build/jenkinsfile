@@ -29,7 +29,7 @@ pipeline
 						  thresholds: [
 						  [$class: 'SkippedThreshold', failureThreshold: '0'],
 						  [$class: 'FailedThreshold', failureThreshold: '0']],
-						  tools: [[$class: 'XUnitDotNetTestType', pattern: 'test/results/*.testresults']]])
+						  tools: [[$class: 'JUnitType', pattern: 'test/results/*.testresults']]])
 
 					cobertura autoUpdateHealth: false, autoUpdateStability: false, 
 					coberturaReportFile: 'test\\results\\covertura.coverageresults', 
