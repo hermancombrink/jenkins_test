@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<assemblies timestamp="11/18/2017 22:04:24">
-  <assembly name="jenkins_test_unittests.dll" environment="64-bit .NET Standard [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.3.1.3858" run-date="2017-11-18" run-time="22:04:22" total="2" passed="2" failed="0" skipped="0" time="1.494" errors="0">
+<assemblies timestamp="11/19/2017 07:59:03">
+  <assembly name="jenkins_test_unittests.dll" environment="64-bit .NET Standard [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.3.1.3858" run-date="2017-11-19" run-time="07:59:03" total="2" passed="2" failed="0" skipped="0" time="0.352" errors="0">
     <errors />
-    <collection total="2" passed="2" failed="0" skipped="0" name="Test collection for jenkins_test_unittests.MyJenkinsBuild_UnitTest" time="1.069">
-      <test name="jenkins_test_unittests.MyJenkinsBuild_UnitTest.JenkinsBuildWithPortShouldSuccess" type="jenkins_test_unittests.MyJenkinsBuild_UnitTest" method="JenkinsBuildWithPortShouldSuccess" time="0.8956638" result="Pass" />
-      <test name="jenkins_test_unittests.MyJenkinsBuild_UnitTest.JenkinsBuildWithNoPortShouldThrow" type="jenkins_test_unittests.MyJenkinsBuild_UnitTest" method="JenkinsBuildWithNoPortShouldThrow" time="0.173809" result="Pass" />
+    <collection total="2" passed="2" failed="0" skipped="0" name="Test collection for jenkins_test_unittests.MyJenkinsBuild_UnitTest" time="0.047">
+      <test name="jenkins_test_unittests.MyJenkinsBuild_UnitTest.JenkinsBuildWithPortShouldSuccess" type="jenkins_test_unittests.MyJenkinsBuild_UnitTest" method="JenkinsBuildWithPortShouldSuccess" time="0.0308022" result="Pass" />
+      <test name="jenkins_test_unittests.MyJenkinsBuild_UnitTest.JenkinsBuildWithNoPortShouldThrow" type="jenkins_test_unittests.MyJenkinsBuild_UnitTest" method="JenkinsBuildWithNoPortShouldThrow" time="0.016174" result="Pass" />
     </collection>
   </assembly>
 </assemblies>

@@ -47,7 +47,8 @@ foreach($testProject in $testProjects)
         -mergeoutput `
         -oldStyle `
         -excludebyattribute:System.CodeDom.Compiler.GeneratedCodeAttribute `
-        -log:Fatal
+        -log:Fatal `
+		-filter:"+[*]* -[*FluentAssertions*]*"
         $testRuns++
 }
 
