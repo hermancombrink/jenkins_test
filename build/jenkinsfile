@@ -9,12 +9,18 @@ pipeline
 		}
 		
 		stage('Build') {
+			when  {
+				   expression { params.Build }
+			      }
 			steps {
-					bat 'powershell ".\\build\\build.ps1 $env:BUILD_NUMBER"'
+					powershell '.\\build\\build.ps1 $env:BUILD_NUMBER'
 				  }
 		}
 
 		stage('Test') {
+			when  {
+				   expression { params.Test }
+			      }
 			steps 
 				  {
 					powershell '.\\build\\test.ps1'
