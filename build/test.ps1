@@ -1,25 +1,61 @@
-
- $path = $PSScriptRoot
+$path = $PSScriptRoot
 
 try
 {
 
-if(Test-Path ".\test\Results\$($testProject.BaseName).xml")
-{
-    echo "Found Test Results.... Clearing..."
+$testDir = "$PSScriptRoot\..\test"
+$nugetOpenCoverPackage = Join-Path -Path $env:USERPROFILE -ChildPath "\.nuget\packages\OpenCover"
+$latestOpenCover = Join-Path -Path ((Get-ChildItem -Path $nugetOpenCoverPackage | Sort-Object Fullname -Descending)[0].FullName) -ChildPath "tools\OpenCover.Console.exe"
+$nugetCoberturaConverterPackage = Join-Path -Path $env:USERPROFILE -ChildPath "\.nuget\packages\OpenCoverToCoberturaConverter"
+$latestCoberturaConverter = Join-Path -Path (Get-ChildItem -Path $nugetCoberturaConverterPackage | Sort-Object Fullname -Descending)[0].FullName -ChildPath "tools\OpenCoverToCoberturaConverter.exe"
+$openresults = "$testDir\Results\OpenCover.coverageresults"
+$coberresults = "$testDir\Results\Cobertura.coverageresults"
+$testresults = "$testDir\Results\$($testProject.BaseName).testresults"
 
-    Remove-Item .\test\Results\$($testProject.BaseName).xml 
+$testProjects = get-childitem .\test -Depth 2 | where { $_.extension -eq ".csproj" }
+
+if(Test-Path $testresults)
+{
+    Remove-Item $testresults
 }
 
- $testDir = get-childitem .\test -Depth 2 | where { $_.extension -eq ".csproj" }
+if(Test-Path $coberresults)
+{
+    Remove-Item $coberresults 
+}
 
- foreach($testProject in $testDir)
- {
+if(Test-Path $openresults)
+{
+    Remove-Item $openresults 
+}
+ 
+
+foreach($testProject in $testProjects)
+{
+
+   $dotnetArguments = "xunit", "--no-build", "-configuration Release", "-xml `"`"$testDir\Results\$($testProject.BaseName).testresults`"`""
+
+   echo $dotnetArguments
    echo "Running tests for ... $($testProject.BaseName)" 
-   cd $testProject.Directory.FullName
-   & dotnet test $testProject.FullName --configuration=Release --logger:"xunit;LogFilePath=..\Results\$($testProject.BaseName).xml" --no-build --no-restore 
- }
 
+     & $latestOpenCover `
+        -register:user `
+        -target:dotnet.exe `
+        -targetdir:$testDir\$($testProject.Directory.BaseName) `
+        "-targetargs:$dotnetArguments" `
+        -returntargetcode `
+        -output:"$openresults" `
+        -mergeoutput `
+        -oldStyle `
+        -excludebyattribute:System.CodeDom.Compiler.GeneratedCodeAttribute `
+        -log:Fatal
+        $testRuns++
+}
+
+& $latestCoberturaConverter `
+    -input:"$openresults" `
+    -output:"$coberresults" `
+    "-sources:$testDir\Results"
 
 }
 catch {
