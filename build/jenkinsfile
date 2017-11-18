@@ -38,7 +38,9 @@ pipeline
 						methodCoverageTargets: '80, 60, 0', 
 						onlyStable: false, 
 						sourceEncoding: 'ASCII', 
-						zoomCoverageChart: false
+						zoomCoverageChart: false,
+						failUnhealthy: false, 
+						failUnstable: false
 				  }
 		}
 	}   
