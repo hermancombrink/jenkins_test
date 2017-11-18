@@ -24,6 +24,12 @@ pipeline
 			steps 
 				  {
 					bat 'powershell ".\\build\\test.ps1"'
+
+					step([$class: 'XUnitBuilder',
+						  thresholds: [
+						  [$class: 'SkippedThreshold', failureThreshold: '0'],
+						  [$class: 'FailedThreshold', failureThreshold: '0']],
+						  tools: [[$class: 'JUnitType', pattern: 'reports/**']]])
 				  }
 		}
 	}   
