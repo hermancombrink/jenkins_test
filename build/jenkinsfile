@@ -25,6 +25,7 @@ pipeline
 				  {
 					bat 'powershell ".\\build\\test.ps1"'
 				  }
+		}
 
 		stage('Results')
 		{
@@ -45,7 +46,6 @@ pipeline
 						onlyStable: false, sourceEncoding: 'ASCII', 
 						zoomCoverageChart: false
 				  }
-		}
 		}
 	}   
 }
