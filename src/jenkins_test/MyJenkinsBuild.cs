@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace jenkins_test
 {
@@ -10,5 +11,11 @@ namespace jenkins_test
         }
 
         public int PortNumber { get; }
+
+        public void MyFunctionThatIsNotCovered()
+        {
+
+            Debug.Write("You just called my awesome function");
+        }
     }
 }
