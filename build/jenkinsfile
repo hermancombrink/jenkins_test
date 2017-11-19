@@ -13,17 +13,6 @@ pipeline
 				   expression { params.Build }
 			      }
 			steps {
-				  warnings canComputeNew: false, 
-						canResolveRelativePaths: false, 
-						categoriesPattern: '', 
-						consoleParsers: [[parserName: 'MSBuild']], 
-						defaultEncoding: '', 
-						excludePattern: '', 
-						healthy: '', 
-						includePattern: '', 
-						messagesPattern: '', 
-						unHealthy: '75'
-
 					bat 'powershell ".\\build\\build.ps1 $env:BUILD_NUMBER"'
 				  }
 		}
@@ -64,5 +53,20 @@ pipeline
 			}
 		
 		}
-	}   
+	}  
+	
+	 post { 
+        always { 
+              warnings canComputeNew: false, 
+						canResolveRelativePaths: false, 
+						categoriesPattern: '', 
+						consoleParsers: [[parserName: 'MSBuild']], 
+						defaultEncoding: '', 
+						excludePattern: '', 
+						healthy: '', 
+						includePattern: '', 
+						messagesPattern: '', 
+						unHealthy: '75'
+        }
+    }
 }

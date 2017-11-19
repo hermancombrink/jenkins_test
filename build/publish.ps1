@@ -30,8 +30,13 @@ try
 		{
 			throw "Build failed on $_";
 		}
+
     Compress-Archive -Path "$projDir\bin\Release\$projectType\publish\*" -DestinationPath "$projDir\bin\Release\$projectType\$projectName.zip"
-	echo "Done $projFile"
+
+	 if($LASTEXITCODE  -ne 0)
+		{
+			throw "Build failed on $_";
+		}
 
 }
 catch {
