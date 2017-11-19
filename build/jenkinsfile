@@ -60,7 +60,7 @@ pipeline
               warnings canComputeNew: false, 
 						canResolveRelativePaths: false, 
 						categoriesPattern: '', 
-						consoleParsers: [[parserName: 'MSBuild']], 
+						consoleParsers: [[parserName: 'MSBuild'], [parserName: 'StyleCop']], 
 						defaultEncoding: '', 
 						excludePattern: '', 
 						healthy: '', 
