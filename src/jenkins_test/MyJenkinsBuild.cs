@@ -14,8 +14,23 @@ namespace jenkins_test
 
         public void MyFunctionThatIsNotCovered()
         {
+            if (1 == 1)
+            {
+                Debug.Write("You just called my awesome function");
+            }
 
-            Debug.Write("You just called my awesome function");
+
+            if (1 == 2)
+            {
+                try
+                {
+                    throw new Exception("test");
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
         }
     }
 }
