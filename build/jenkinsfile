@@ -49,7 +49,7 @@ pipeline
 			      }
 			steps {
 					bat 'powershell ".\\build\\publish.ps1 $env:BUILD_NUMBER jenkins_test"'
-					archiveArtifacts artifacts: 'src/jenkins_test/bin/Release/netcoreapp2.0/publish/jenkins_test.zip', fingerprint: true, onlyIfSuccessful: true
+					archiveArtifacts artifacts: 'src/jenkins_test/bin/Release/netcoreapp2.0/jenkins_test.zip', fingerprint: true, onlyIfSuccessful: true
 			}
 		
 		}

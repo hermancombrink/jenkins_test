@@ -25,7 +25,7 @@ try
 		{
 			throw "Build failed on $_";
 		}
-    Compress-Archive -Path "$projDir\bin\Release\$projectType\publish\*" -DestinationPath "$projDir\bin\Release\$projectType\publish\$projectName.zip"
+    Compress-Archive -Path "$projDir\bin\Release\$projectType\publish\*" -DestinationPath "$projDir\bin\Release\$projectType\$projectName.zip"
 	echo "Done $projFile"
 
 }
