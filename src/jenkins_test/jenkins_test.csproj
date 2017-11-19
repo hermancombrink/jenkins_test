@@ -9,4 +9,8 @@
     <DebugSymbols>True</DebugSymbols>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="StyleCop" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>
