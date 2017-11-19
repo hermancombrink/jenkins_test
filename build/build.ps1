@@ -9,7 +9,7 @@ try
 {
 	$t = $msBuildPath + "\msbuild"
 	& $t /t:restore
-	& $t /p:Configuration=Release /p:BuildVersion=$buildNumber /p:BuildInParallel=true /p:StopOnFirstFailure=true /verbosity:m
+	& $t /p:Configuration=Release /p:BuildVersion=$buildNumber /p:BuildInParallel=true /p:StopOnFirstFailure=true 
 	 if($LASTEXITCODE  -ne 0)
 		{
 			throw "Build failed on $_";
