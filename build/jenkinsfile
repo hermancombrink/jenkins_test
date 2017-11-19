@@ -48,7 +48,8 @@ pipeline
 				   expression { params.Publish }
 			      }
 			steps {
-					archiveArtifacts artifacts: 'src/*/bin/Release/netcoreapp2.0/*', fingerprint: true, onlyIfSuccessful: true
+					bat 'powershell ".\\build\\publish.ps1 $env:BUILD_NUMBER jenkins_test"'
+					archiveArtifacts artifacts: 'src/jenkins_test/bin/Release/netcoreapp2.0/publish/$env:BUILD_NUMBER.zip', fingerprint: true, onlyIfSuccessful: true
 			}
 		
 		}
