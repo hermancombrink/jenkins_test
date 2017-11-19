@@ -56,17 +56,18 @@ pipeline
 	}  
 	
 	 post { 
-        always { 
-              warnings canComputeNew: false, 
-						canResolveRelativePaths: false, 
-						categoriesPattern: '', 
-						consoleParsers: [[parserName: 'MSBuild'], [parserName: 'StyleCop']], 
-						defaultEncoding: '', 
-						excludePattern: '', 
-						healthy: '', 
-						includePattern: '', 
-						messagesPattern: '', 
-						unHealthy: '75'
+        success { 
+			warnings canComputeNew: false,
+			canResolveRelativePaths: false, 
+			categoriesPattern: '', 
+			consoleParsers: [[parserName: 'MSBuild'], [parserName: 'StyleCop']], 
+			defaultEncoding: '', 
+			excludePattern: '', 
+			healthy: '', 
+			includePattern: '', 
+			messagesPattern: '', 
+			unHealthy: ''
+
         }
     }
 }
