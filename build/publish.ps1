@@ -18,6 +18,11 @@ try
         Remove-Item -recurse  "$projDir\bin\Release\$projectType\publish"
     }
 
+	 if(Test-Path "$projDir\bin\Release\$projectType\$projectName.zip")
+    {
+        Remove-Item "$projDir\bin\Release\$projectType\$projectName.zip"
+    }
+
 	dotnet clean -c Release $projFile
 	dotnet publish -c Release $projFile --version-suffix $buildNumber
 
