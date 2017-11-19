@@ -40,6 +40,18 @@ pipeline
 						zoomCoverageChart: false,
 						failUnhealthy: false, 
 						failUnstable: false
+
+					warnings canComputeNew: false, 
+						canResolveRelativePaths: false, 
+						categoriesPattern: '', 
+						consoleParsers: [[parserName: 'StyleCop']], 
+						defaultEncoding: '', 
+						excludePattern: '', 
+						healthy: '', 
+						includePattern: '', 
+						messagesPattern: '', 
+						unHealthy: '75'
+
 				  }
 		}
 		
