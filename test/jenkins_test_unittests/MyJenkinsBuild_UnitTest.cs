@@ -28,5 +28,17 @@ namespace jenkins_test_unittests
 
             act.ShouldNotThrow<ArgumentException>();
         }
+
+        [Fact]
+        public void CallingJenkingBuildShouldPass()
+        {
+            Action act = () => {
+
+                new MyJenkinsBuild(2).MyFunctionThatIsNotCovered(); 
+            };
+
+            act.ShouldNotThrow<ArgumentException>();
+        }
+
     }
 }
